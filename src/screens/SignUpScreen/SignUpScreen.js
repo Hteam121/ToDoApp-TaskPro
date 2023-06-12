@@ -1,8 +1,10 @@
 import { View, Image, StyleSheet, ScrollView, Text} from 'react-native'
 import React, {useState} from 'react';
-import CustomInput from '../../components/CustomInput/CustomInput.js';
-import CustomButton from '../../components/CustomButton/CustomButton.js';
-import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
+import CustomInput from '../../components/CustomInput';
+import CustomButton from '../../components/CustomButton';
+import SocialSignInButtons from '../../components/SocialSignInButtons';
+import { useNavigation } from '@react-navigation/native';
+import SignInScreen from '../SignInScreen/SignInScreen';
 
 const SignUpScreen = () => {
     const [username, setUsername] = useState('');
@@ -11,10 +13,10 @@ const SignUpScreen = () => {
     const [passwordRepeat, setPasswordRepeat] = useState('');
 
     const onSignUpPressed = ()=> {
-        console.warn("Sign up")
+        navigation.navigate("ConfirmEmail")
     }
     const onSignInPressed = () => {
-        console.warn("Sign in")
+        navigation.navigate(SignInScreen)
     }
     const onTremsOfUsePressed = () => {
         console.warn("Terms of Use Pressed")
@@ -22,6 +24,8 @@ const SignUpScreen = () => {
     const onPrivacyPolicyPressed = () => {
         console.warn("Privacy Policy Pressed")
     }
+
+    const navigation = useNavigation();
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>

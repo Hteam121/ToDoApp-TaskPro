@@ -1,18 +1,19 @@
 import { View, Image, StyleSheet, ScrollView, Text} from 'react-native'
 import React, {useState} from 'react';
-import CustomInput from '../../components/CustomInput/CustomInput.js';
-import CustomButton from '../../components/CustomButton/CustomButton.js';
-import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
+import CustomInput from '../../components/CustomInput';
+import CustomButton from '../../components/CustomButton';
+import SocialSignInButtons from '../../components/SocialSignInButtons';
+import { useNavigation } from '@react-navigation/native';
 
 const ForgotPasswordScreen = () => {
     const [username, setUsername] = useState('');
-
     const onSendPressed = ()=> {
-        console.warn("Confirmed")
+        navigation.navigate("NewPassword")
     }
     const onBackButton = () => {
-        console.warn("Back")
+        navigation.navigate("SignIn")
     }
+    const navigation = useNavigation();
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>

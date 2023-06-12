@@ -1,18 +1,20 @@
 import { View, Image, StyleSheet, ScrollView, Text} from 'react-native'
 import React, {useState} from 'react';
-import CustomInput from '../../components/CustomInput/CustomInput.js';
-import CustomButton from '../../components/CustomButton/CustomButton.js';
-import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
+import CustomInput from '../../components/CustomInput';
+import CustomButton from '../../components/CustomButton';
+import SocialSignInButtons from '../../components/SocialSignInButtons';
+import { useNavigation } from '@react-navigation/native';
 
 const NewPasswordScreen = () => {
     const [code, setCode] = useState('');
     const [newPassword, setNewPassword] = useState('');
+    const navigation = useNavigation();
 
     const onSubmitPressed = ()=> {
-        console.warn("Confirmed")
+        navigation.navigate("SignIn")
     }
     const onBackButton = () => {
-        console.warn("Back")
+        navigation.navigate("SignIn")
     }
 
   return (
