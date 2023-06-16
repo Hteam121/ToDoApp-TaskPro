@@ -1,4 +1,4 @@
-# ToDoApp-Putana
+# ToDoApp-TaskPro
 
 ## Overview
 ToDoApp-Putana is a simple todo list mobile application built using React Native and Expo. The app allows users to create and manage their own todo lists, with features such as email verification and password reset using Firebase authentication. 
