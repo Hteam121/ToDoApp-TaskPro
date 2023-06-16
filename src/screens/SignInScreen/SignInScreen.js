@@ -1,6 +1,6 @@
 import { View, Image, StyleSheet, ScrollView} from 'react-native'
 import React, {useState, useEffect} from 'react';
-import Logo from '../../../assets/images/putana-logo.png';
+import Logo from '../../../assets/images/taskpro-logo.png';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons';
