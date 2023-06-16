@@ -1,22 +1,44 @@
 import { View, Image, StyleSheet, ScrollView, Text} from 'react-native'
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons';
 import { useNavigation } from '@react-navigation/native';
 import SignInScreen from '../SignInScreen/SignInScreen';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUpScreen = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordRepeat, setPasswordRepeat] = useState('');
+    const [errorMessage, setErrorMessage] = useState(null); 
+    const auth = getAuth();
 
-    const onSignUpPressed = ()=> {
-        navigation.navigate("ConfirmEmail")
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+          if (user) {
+            navigation.replace("ConfirmEmail")
+          }
+        })
+        return unsubscribe
+      }, [])
+
+      const onSignUpPressed = ()=> {
+        if(password !== passwordRepeat) {
+            setErrorMessage('Passwords do not match');
+            return;
+        }
+
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(userCredentials => {
+            const user = userCredentials.user; // Updated based on Firebase v9 API
+            console.log('Logged in with', user.email);
+        })
+        .catch(error => alert(error.message));
     }
     const onSignInPressed = () => {
-        navigation.navigate(SignInScreen)
+        navigation.navigate("SignIn")
     }
     const onTremsOfUsePressed = () => {
         console.warn("Terms of Use Pressed")
@@ -31,12 +53,6 @@ const SignUpScreen = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
             <Text style={styles.title}> Create an Account </Text>
-            <CustomInput 
-                placeholder="Username"
-                value={username} 
-                setValue={setUsername}
-                secureTextEntry={false}
-            />
             <CustomInput 
                 placeholder="Email"
                 value={email} 
@@ -82,6 +98,7 @@ const styles = StyleSheet.create({
     root: {
         alignItems: 'center',
         padding: 20,
+        marginTop: '25%',
     },
     title: {
         fontSize: 32,
@@ -96,7 +113,7 @@ const styles = StyleSheet.create({
     },
     link: {
         color: '#FFA726'
-    }
+    },
 });
   
 export default SignUpScreen

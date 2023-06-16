@@ -4,15 +4,43 @@ import CustomInput from '../../components/CustomInput/CustomInput.js';
 import CustomButton from '../../components/CustomButton/CustomButton.js';
 import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
 import { useNavigation } from '@react-navigation/native';
+import { getAuth, sendEmailVerification, createUserWithEmailAndPassword } from "firebase/auth";
+
 
 const ConfirmEmailScreen = () => {
     const [code, setCode] = useState('');
 
     const onConfirmPressed = ()=> {
-        navigation.navigate("Home")        
-    }
+        const auth = getAuth();
+        const user = auth.currentUser;
+        if (user) {
+            user.reload()
+            .then(() => {
+                if (user.emailVerified) {
+                    navigation.navigate("Home") 
+                } else {
+                    alert('Email not verified yet');
+                }
+            })
+            .catch(error => {
+                console.error('Error reloading user data', error);
+            });
+        }       
+    }    
     const onResend = () => {
-        navigation.warn("Resend")
+        const auth = getAuth();
+        const user = auth.currentUser;
+        if (user) {
+            sendEmailVerification(user)
+            .then(function() {
+                // Email verification sent!
+                console.log('Verification email sent');
+            })
+            .catch(function(error) {
+                // An error occurred. Handle it or show alert to user
+                console.error('Error sending verification email', error);
+            });
+        }
     }
     const onBackButton = () => {
         navigation.navigate("SignIn")
@@ -23,21 +51,16 @@ const ConfirmEmailScreen = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
             <Text style={styles.title}> Confirm Your Email </Text>
-            <CustomInput 
-                placeholder="Enter Your Confirmation Code"
-                value={code} 
-                setValue={setCode}
-                secureTextEntry={false}
-            />
+            <Text style={styles.instruction}> Confirm your email using the link sent to your inbox </Text>
             
             <CustomButton 
-                text="Confirm" 
+                text="Done" 
                 onPress={onConfirmPressed}
                 type="PRIMARY"
             />
 
             <CustomButton 
-                text="Resend Code"
+                text="Resend Link"
                 onPress={onResend}
                 type="SECONDARY"
             />
@@ -70,6 +93,14 @@ const styles = StyleSheet.create({
     },
     link: {
         color: '#FFA726'
+    },
+    instruction: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 'auto',
+        padding: 10,
+        marginBottom: 30,
+
     }
 });
   

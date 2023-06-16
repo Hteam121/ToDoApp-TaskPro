@@ -2,13 +2,24 @@ import { View, Image, StyleSheet, ScrollView, Text} from 'react-native'
 import React, {useState} from 'react';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
-import SocialSignInButtons from '../../components/SocialSignInButtons';
 import { useNavigation } from '@react-navigation/native';
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 const ForgotPasswordScreen = () => {
-    const [username, setUsername] = useState('');
+    const [username, setUsername] = useState('');    
+    const auth = getAuth();
+
     const onSendPressed = ()=> {
-        navigation.navigate("NewPassword")
+        sendPasswordResetEmail(auth, username)
+            .then(function() {
+                // Email sent.
+                console.log('Password reset email sent');
+                navigation.navigate("NewPassword");
+            })
+            .catch(function(error) {
+                // An error happened.
+                console.error('Error while sending password reset email', error);
+            });
     }
     const onBackButton = () => {
         navigation.navigate("SignIn")
@@ -20,7 +31,7 @@ const ForgotPasswordScreen = () => {
         <View style={styles.root}>
             <Text style={styles.title}> Reset Your Password </Text>
             <CustomInput 
-                placeholder="Username"
+                placeholder="Email"
                 value={username} 
                 setValue={setUsername}
                 secureTextEntry={false}
@@ -51,7 +62,7 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontWeight: 'bold',
         color: '#051C60',
-        marginTop: '50%',
+        marginTop: '65%',
         marginBottom: 20,
     },
     text: {

@@ -6,7 +6,6 @@ import SocialSignInButtons from '../../components/SocialSignInButtons';
 import { useNavigation } from '@react-navigation/native';
 
 const NewPasswordScreen = () => {
-    const [code, setCode] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const navigation = useNavigation();
 
@@ -20,21 +19,9 @@ const NewPasswordScreen = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
-            <Text style={styles.title}> Reset Your Password </Text>
-            <CustomInput 
-                placeholder="Code"
-                value={code} 
-                setValue={setCode}
-                secureTextEntry={false}
-            />
-            <CustomInput 
-                placeholder="Enter your new password"
-                value={newPassword} 
-                setValue={setNewPassword}
-                secureTextEntry={false}
-            />
+            <Text style={styles.title}> Password Reset Sent </Text>
             <CustomButton 
-                text="Submit" 
+                text="Done" 
                 onPress={onSubmitPressed}
                 type="PRIMARY"
             />
@@ -58,7 +45,7 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontWeight: 'bold',
         color: '#051C60',
-        marginTop: '50%',
+        marginTop: '80%',
         marginBottom: 20,
     },
     text: {

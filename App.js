@@ -1,13 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View} from 'react-native';
 import Navigation from './src/navigation';
+import { app, analytics } from './src/components/firebase.js';
+// import TodoListScreen from './src/screens/ToDoListScreen/ToDoListScreen';
 
 const App = () => {
+  console.disableYellowBox = true
+  console.disableRedBox = true
   return (
-    <SafeAreaView style={styles.root}>
+    <View style={styles.root}>
       <Navigation/>
-    </SafeAreaView>
+    </View>
   )
 }
 

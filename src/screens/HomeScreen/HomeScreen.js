@@ -4,7 +4,7 @@ import React from 'react'
 const index = () => {
   return (
     <View>
-      <Text style={{fontSize: 24, alignSelf: 'center'}}>Home sweet Home</Text>
+      <Text style={{fontSize: 24, alignSelf: 'center', marginTop: '15%'}}>Home sweet Home</Text>
     </View>
   )
 }
