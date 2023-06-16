@@ -1,7 +1,7 @@
 # ToDoApp-TaskPro
 
 ## Overview
-ToDoApp-Putana is a simple todo list mobile application built using React Native and Expo. The app allows users to create and manage their own todo lists, with features such as email verification and password reset using Firebase authentication. 
+ToDoApp-TaskPro is a simple todo list mobile application built using React Native and Expo. The app allows users to create and manage their own todo lists, with features such as email verification and password reset using Firebase authentication. 
 
 ## Features
 - User authentication: Sign up, sign in, email verification, and password reset functionality.
@@ -32,4 +32,4 @@ This project was developed as part of my learning journey in React Native and mo
 - https://www.youtube.com/watch?v=ql4J6SpLXZA
 
 ## Resume Project
-ToDoApp-Putana serves as a testament to my skills in React Native and mobile app development. It showcases my ability to work with authentication, data management, and navigation in a mobile application. The project highlights my proficiency in using Expo, Firebase, and React Navigation to create a functional and visually appealing user interface.
+ToDoApp-TaskPro serves as a testament to my skills in React Native and mobile app development. It showcases my ability to work with authentication, data management, and navigation in a mobile application. The project highlights my proficiency in using Expo, Firebase, and React Navigation to create a functional and visually appealing user interface.
