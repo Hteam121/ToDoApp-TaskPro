@@ -1,7 +1,7 @@
 # ToDoApp-TaskPro
 
 <p align="center">
-  <img src="https://github.com/Hteam121/ToDoApp-TaskPro/assets/85576231/152ba347-68cf-49d4-a925-cd3fd4212010" alt="IMG_9088">
+  <img width="863" src="https://github.com/Hteam121/ToDoApp-TaskPro/assets/85576231/152ba347-68cf-49d4-a925-cd3fd4212010" alt="IMG_9088">
 </p>
 
 ## Overview
