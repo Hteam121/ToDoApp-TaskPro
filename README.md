@@ -1,8 +1,8 @@
 # ToDoApp-TaskPro
 
 <p align="center">
-   <img width="863" alt="IMG_9088" src="[https://github.com/Hteam121/HugoAi/assets/85576231/88412901-9244-43a8-9cf9-581b19425fb8](https://github.com/Hteam121/ToDoApp-TaskPro/assets/85576231/6fb77526-43ad-452f-8a60-1c0c80d6f6c7)">
-<p/>
+  <img src="https://github.com/Hteam121/ToDoApp-TaskPro/assets/85576231/152ba347-68cf-49d4-a925-cd3fd4212010" alt="IMG_9088">
+</p>
 
 ## Overview
 ToDoApp-TaskPro is a simple todo list mobile application built using React Native and Expo. The app allows users to create and manage their own todo lists, with features such as email verification and password reset using Firebase authentication. 
