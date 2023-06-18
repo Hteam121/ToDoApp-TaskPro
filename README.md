@@ -1,7 +1,7 @@
 # ToDoApp-TaskPro
 
 <p align="center">
-![IMG_9088](https://github.com/Hteam121/ToDoApp-TaskPro/assets/85576231/6fb77526-43ad-452f-8a60-1c0c80d6f6c7)
+   <img width="863" alt="IMG_9088" src="[https://github.com/Hteam121/HugoAi/assets/85576231/88412901-9244-43a8-9cf9-581b19425fb8](https://github.com/Hteam121/ToDoApp-TaskPro/assets/85576231/6fb77526-43ad-452f-8a60-1c0c80d6f6c7)">
 <p/>
 
 ## Overview
